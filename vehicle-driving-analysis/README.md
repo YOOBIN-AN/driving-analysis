@@ -7,13 +7,17 @@
 블랙박스 영상만으로 차선 내 차량 위치 · 진행 방향 · 상대 움직임을 분석하고,
 위험 단계와 운전자 안내 문구를 실시간으로 표시하는 시스템
 
-`ACE Lab 하계 코딩캠프 해커톤` · `2026.08` · `2인 팀`
-
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
 ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+
+https://github.com/user-attachments/assets/e52af55f-3f94-4801-881d-08453bc208b0
+<sub>고속도로 주행 — 급한 오른쪽 곡선 진입 시 CAUTION 전환 · 감속 안내</sub>
+
+https://github.com/user-attachments/assets/dc60bd59-534e-4bb5-b99b-9826f01e979c
+<sub>도심 주행 — 앞차 · 노면 표시가 많아 차선 인식이 흔들리는 환경</sub>
 
 ![블랙박스 프레임 차선 검출](docs/images/09_blackbox_roi_lane_detection.png)
 <sub>왼쪽: 도로 ROI(빨강)와 검출된 좌·우 차선(초록) / 오른쪽: HLS 색상 + Canny로 만든 차선 후보 에지</sub>
