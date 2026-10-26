@@ -1,4 +1,4 @@
-# 블랙박스 주행상황 분석
+# 차량 주행상황 분석
 **Driving Analysis**
 
 블랙박스 영상만으로 차선 이탈 위험을 판단하고 운전자에게 실시간 주행 상태를 안내하는 시스템
@@ -10,7 +10,7 @@
 경북대학교 전자공학부 ACE Lab 하계 코딩캠프의 자율주행 프로그래밍 과정에서 진행한 해커톤 프로젝트입니다. 시스템은 두 파트로 나뉩니다.
 
 - ① 전방 객체 탐지
-- ② **[차량 주행 분석](vehicle-driving-analysis/)** ← 내 담당 (구현 · 발표)
+- ② **[차량 주행 분석](vehicle-driving-analysis/)** ← 담당 (구현 · 발표)
 
 ## 처리 흐름
 
@@ -85,6 +85,6 @@ flowchart LR
 
 <table>
 <thead><tr><th>이름</th><th>역할</th></tr></thead>
-<tbody><tr><td><b>안유빈</b></td><td><b><a href="vehicle-driving-analysis/">② 차량 주행 분석</a> (구현 · 발표)</b></td></tr></tbody>
 <tbody><tr><td>조윤서</td><td>① 전방 객체 탐지</td></tr></tbody>
+<tbody><tr><td><b>안유빈</b></td><td><b><a href="vehicle-driving-analysis/">② 차량 주행 분석</a> (구현 · 발표)</b></td></tr></tbody>
 </table>
