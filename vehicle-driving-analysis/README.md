@@ -74,7 +74,7 @@ flowchart LR
 <td width="33%" valign="top" align="left">
 
 📁 <a href="src/"><b>src</b></a><br>
-<sub>분석 스크립트 · 수업 제공 코드</sub>
+<sub>분석 스크립트 · 수업 코드 안내</sub>
 
 <code>driveguard.py</code> <code>course_lib/</code>
 
@@ -82,9 +82,9 @@ flowchart LR
 <td width="33%" valign="top" align="left">
 
 📁 <b>results</b><br>
-<sub>결과 영상 GIF · 프레임별 CSV</sub>
+<sub>실행 시 생성 (저장소 미포함)</sub>
 
-<code>gif/</code> <code>csv/</code>
+<code>*_analyzed.mp4</code> <code>*_frame_results.csv</code>
 
 </td>
 </tr>
@@ -94,9 +94,9 @@ flowchart LR
 <td width="33%" valign="top" align="left">
 
 📁 <a href="docs/"><b>docs</b></a><br>
-<sub>실행 이미지 · 발표 자료 · 흐름도</sub>
+<sub>실행 과정 이미지</sub>
 
-<code>images/</code> <code>presentation/</code> <code>diagrams/</code>
+<code>images/</code>
 
 </td>
 <td width="33%" valign="top" align="left">
@@ -197,6 +197,9 @@ flowchart LR
 - **11 ~ 18절 · 판단 로직 설계** — 중심 오차, 이탈 상태, 진행 방향, 좌우 여유 폭, 위험 단계, 결과 오버레이
 - **19 ~ 23절 · 블랙박스 영상 분석** — 원본 시점 차선 검출, Optical Flow, 한글 오버레이, 전체 영상 처리 · CSV 저장
 
+> 1 ~ 10절은 수업 제공 라이브러리([`course_lib`](src/course_lib/))가 필요하며, 수업 자료라 저장소에는 포함하지 않았습니다.
+> 블랙박스 영상 분석은 [`src/driveguard.py`](src/driveguard.py)로 단독 실행할 수 있습니다.
+
 <p>
 <img src="docs/images/02_bev.png" width="54%">
 <img src="docs/images/06_lane_margin.png" width="42%">
@@ -273,7 +276,7 @@ pip install -r requirements.txt
 python src/driveguard.py data/test2.mp4 --out-dir results
 # → results/test2_analyzed.mp4, results/test2_frame_results.csv
 
-# 노트북 전체 (수업 파이프라인 재현 포함, ros3_ws 경로 설정 필요)
+# 노트북 전체 (1~10절은 수업 제공 코드 필요 · 저장소 미포함)
 jupyter notebook notebooks/lane_state_analysis_final.ipynb
 ```
 
