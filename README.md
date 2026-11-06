@@ -26,7 +26,8 @@
 
 ## 1. 개요
 
-경북대학교 전자공학부 ACE Lab 하계 코딩캠프의 자율주행 프로그래밍 과정에서 진행한 해커톤 프로젝트로, 블랙박스 영상을 두 관점에서 분석하도록 시스템을 두 파트로 나눴습니다.
+경북대학교 전자공학부 ACE Lab 하계 코딩캠프의 자율주행 프로그래밍 과정에서 진행한 해커톤 프로젝트입니다.  
+블랙박스 영상을 두 관점에서 분석하도록 시스템을 두 파트로 나눴습니다.
 
 발표 자료 → [`driving-analysis-presentation.pdf`](docs/presentation/driving-analysis-presentation.pdf)
 
