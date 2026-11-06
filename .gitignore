@@ -7,5 +7,5 @@ __pycache__/
 
 # 분석 결과 · 입력 영상 (용량 문제로 저장소 미포함)
 results/
-vehicle-driving-analysis/results/
-vehicle-driving-analysis/data/*.mp4
+lane-analysis/results/
+lane-analysis/data/*.mp4

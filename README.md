@@ -1,9 +1,11 @@
 # 차량 주행상황 분석
-**Driving Analysis**
+**Driving Analysis** · ACE Lab 하계 코딩캠프 해커톤 · 2026.08 · 2인 팀
 
-블랙박스 영상에서 전방 객체 · 신호등 · 차선을 인식하고, 운전자에게 실시간 주행 상태와 위험을 안내하는 시스템
-
-`ACE Lab 하계 코딩캠프 해커톤` · `2026.08` · `2인 팀` · [`발표 자료 (PDF)`](docs/presentation/driving-analysis-presentation.pdf)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
+![YOLO](https://img.shields.io/badge/YOLO-111F68?style=flat-square)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 
 <p>
 <img src="docs/images/object_detection_result.jpg" width="43%">
@@ -11,14 +13,22 @@
 </p>
 <sub>왼쪽: ① 전방 객체 탐지 — 위험 영역 내 보행자 감지 시 정지 판단 / 오른쪽: ② 차량 주행 분석 — 급곡선 구간 주의 안내</sub>
 
-## 개요
+<a id="목차"></a>**목차** · [개요](#1-개요) · [시스템 구성](#2-시스템-구성) · [한계 및 개선 방향](#3-한계-및-개선-방향) · [폴더 구조](#4-폴더-구조)
 
-경북대학교 전자공학부 ACE Lab 하계 코딩캠프의 자율주행 프로그래밍 과정에서 진행한 해커톤 프로젝트입니다.  
-블랙박스 영상을 두 관점에서 분석하도록 시스템을 두 파트로 나눴습니다.
+<br>
 
-## 시스템 구성
+## 1. 개요
 
-| | ① 전방 객체 탐지 — 조윤서 | ② [차량 주행 분석](vehicle-driving-analysis/) — **안유빈 (구현·발표 담당)** |
+블랙박스 영상에서 전방 객체 · 신호등 · 차선을 인식하고, 운전자에게 실시간 주행 상태와 위험을 안내하는 시스템입니다.  
+경북대학교 전자공학부 ACE Lab 하계 코딩캠프의 자율주행 프로그래밍 과정에서 진행한 해커톤 프로젝트로, 블랙박스 영상을 두 관점에서 분석하도록 시스템을 두 파트로 나눴습니다.
+
+발표 자료 → [`driving-analysis-presentation.pdf`](docs/presentation/driving-analysis-presentation.pdf)
+
+<sub>[↑ 목차](#목차)</sub>
+
+## 2. 시스템 구성
+
+| | ① 전방 객체 탐지 — 조윤서 | ② [차량 주행 분석](lane-analysis/) — **안유빈 (구현·발표 담당)** |
 |---|---|---|
 | **질문** | 차량 앞에 "무엇이" 있는가 | 차가 차선 안에서 "어떻게" 달리고 있는가 |
 | **인식** | YOLO 객체 탐지 (차량·사람·신호등) | HLS·Canny·Hough 차선 검출 |
@@ -26,9 +36,11 @@
 | **판단** | `STOP` · `PEDESTRIAN WARNING` | `DANGER` · `CAUTION` · `NORMAL` |
 | **출력** | 바운딩 박스 · 신호등 상태 · 위험 영역 통합 표시 | 상태 오버레이 + 운전자 안내 문구 |
 
-> ② 차량 주행 분석의 처리 흐름 · 판단 규칙 · 코드 · 개발 과정은 **[`vehicle-driving-analysis/`](vehicle-driving-analysis/)** 에서 볼 수 있습니다.
+② 차량 주행 분석의 데모 · 동작 원리 · 코드 · 개발 과정은 [`lane-analysis/`](lane-analysis/)에서 볼 수 있습니다.
 
-## 한계와 개선 방향
+<sub>[↑ 목차](#목차)</sub>
+
+## 3. 한계 및 개선 방향
 
 **한계**
 
@@ -43,16 +55,16 @@
 - 야간·악천후 등 다양한 환경에서 성능 검증
 - 블랙박스 기반 운전 습관 분석 및 사고 예방 시스템으로 확장
 
-## 기술 스택
+<sub>[↑ 목차](#목차)</sub>
 
-`Python` `OpenCV` `YOLO` `HLS · Canny · HoughLinesP` `Lucas–Kanade Optical Flow` `NumPy` `pandas`
-
-## 폴더 구조
+## 4. 폴더 구조
 
 <pre>
 driving-analysis/
-├── <a href="vehicle-driving-analysis/">vehicle-driving-analysis/</a>      ② 차량 주행 분석(상세 README·코드·노트북)
+├── <a href="lane-analysis/">lane-analysis/</a>                      ② 차량 주행 분석 (상세 README · 코드 · 노트북)
 └── <a href="docs/">docs/</a>
-    ├── <a href="docs/images/">images/</a>                    대표 결과 이미지
-    └── <a href="docs/presentation/driving-analysis-presentation.pdf">presentation/</a>              발표 자료 (PDF)
+    ├── <a href="docs/images/">images/</a>                         대표 결과 이미지
+    └── <a href="docs/presentation/driving-analysis-presentation.pdf">presentation/</a>                   발표 자료 (PDF)
 </pre>
+
+<sub>[↑ 목차](#목차)</sub>

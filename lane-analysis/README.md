@@ -33,17 +33,23 @@ ACE Lab 하계 코딩캠프 해커톤에서 ② 차량 주행 분석 파트를 �
 
 ## 2. 데모
 
-**고속도로 주행**
+### 고속도로 주행
 
 https://github.com/user-attachments/assets/e52af55f-3f94-4801-881d-08453bc208b0
 
 <sub>급한 오른쪽 곡선 진입 시 CAUTION 전환 · 감속 안내</sub>
 
-**도심 주행**
+<br>
+
+### 도심 주행
 
 https://github.com/user-attachments/assets/dc60bd59-534e-4bb5-b99b-9826f01e979c
 
 <sub>앞차 · 노면 표시가 많아 차선 인식이 흔들리는 환경</sub>
+
+<br>
+
+### 결과 요약
 
 | 영상 | 결과 |
 |---|---|
@@ -94,6 +100,8 @@ flowchart TD
 | 움직임 분석 | 도로 하단 특징점 이동거리의 중앙값 사용 (60px 이상은 이상치로 제외) |
 
 </details>
+
+<br>
 
 ### 판단 규칙
 
@@ -227,7 +235,7 @@ python src/driveguard.py data/test4.mp4 --out-dir results
 ## 7. 폴더 구조
 
 <pre>
-vehicle-driving-analysis/
+lane-analysis/
 ├── <a href="README.md">README.md</a>
 ├── <a href="requirements.txt">requirements.txt</a>                      패키지 목록
 ├── <a href="notebooks/">notebooks/</a>
