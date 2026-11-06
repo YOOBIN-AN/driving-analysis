@@ -1,5 +1,7 @@
 # 차량 주행상황 분석
-**Driving Analysis** · ACE Lab 하계 코딩캠프 해커톤 · 2026.08 · 2인 팀
+**Driving Analysis**
+
+`ACE Lab 하계 코딩캠프 해커톤` · `2026.08` · `2인 팀`
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
@@ -11,7 +13,7 @@
 <img src="docs/images/object_detection_result.jpg" width="43%">
 <img src="docs/images/driving_analysis_result.jpg" width="55%">
 </p>
-<sub>왼쪽: ① 전방 객체 탐지 — 위험 영역 내 보행자 감지 시 정지 판단 / 오른쪽: ② 차량 주행 분석 — 급곡선 구간 주의 안내</sub>
+<sub>왼쪽: ① 전방 객체 탐지 — 위험 영역 내 보행자 감지 시 정지 판단 / 오른쪽: ② 차량 주행 분석 — 급곡선 구간 주의 안내</sub>  
 
 <a id="목차"></a>**목차** · [개요](#1-개요) · [시스템 구성](#2-시스템-구성) · [한계 및 개선 방향](#3-한계-및-개선-방향) · [폴더 구조](#4-폴더-구조)
 
