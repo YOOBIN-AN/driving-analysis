@@ -49,10 +49,12 @@
 
 ## 저장소 구조
 
-```
+## 저장소 구조
+
+<pre>
 driving-analysis/
-├── vehicle-driving-analysis/   ② 차량 주행 분석 — 상세 README · 노트북 · 코드
-└── docs/
-    ├── images/                 대표 결과 이미지
-    └── presentation/           발표 자료 PDF
-```
+├── <a href="vehicle-driving-analysis/">vehicle-driving-analysis/</a>      ② 차량 주행 분석 (상세 README · 코드 · 노트북)
+└── <a href="docs/">docs/</a>
+    ├── <a href="docs/images/">images/</a>                    대표 결과 이미지
+    └── <a href="docs/presentation/driving-analysis-presentation.pdf">presentation/</a>              발표 자료 (PDF)
+</pre>
