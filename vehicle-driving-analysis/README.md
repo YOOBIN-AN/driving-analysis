@@ -1,7 +1,7 @@
 [← 프로젝트 메인](../README.md)
 
 # ② 차량 주행 분석
-**Vehicle Driving Analysis** · 블랙박스 주행상황 분석 해커톤 중 내 담당 파트
+**Vehicle Driving Analysis** · 블랙박스 주행상황 분석 해커톤 중 담당 파트
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
