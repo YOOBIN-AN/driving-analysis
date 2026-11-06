@@ -9,7 +9,7 @@
 ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
 
-![블랙박스 프레임 차선 검출](docs/images/lane_detection_test4.png)
+![블랙박스 프레임 차선 검출](docs/images/lane_detection.png)
 <sub>왼쪽: 도로 ROI(빨강)와 검출된 좌·우 차선(초록) / 오른쪽: HLS 색상 + Canny로 만든 차선 후보 에지</sub>
 
 <a id="목차"></a>**목차** · [개요](#1-개요) · [데모](#2-데모) · [동작 원리](#3-동작-원리) · [트러블슈팅](#4-트러블슈팅) · [한계 및 개선 방향](#5-한계-및-개선-방향) · [실행 방법](#6-실행-방법) · [폴더 구조](#7-폴더-구조)
@@ -207,11 +207,16 @@ python src/driveguard.py data/test4.mp4 --out-dir results
 | 11 ~ 18 | 판단 로직 설계 — 중심 오차, 이탈 상태, 진행 방향, 좌우 여유 폭, 위험 단계, 결과 오버레이 |
 | 19 ~ 23 | 블랙박스 영상 분석 — 원본 시점 차선 검출, Optical Flow, 한글 오버레이, 전체 영상 처리 · CSV 저장 |
 
-1 ~ 10절은 수업 제공 라이브러리([`src/course_lib/`](src/course_lib/))가 필요하며, 수업 자료라 저장소에는 포함하지 않았습니다.
+1 ~ 10절은 ACE Lab 하계 코딩캠프에서 제공한 실습 코드(`ros3_ws`)가 필요하며, 수업 자료라 저장소에는 포함하지 않았습니다.
+
+| 필요한 파일 | 노트북에서 사용한 함수 |
+|---|---|
+| `camera_perception_func_lib.py` | `bird_convert`, `roi_rectangle_below`, `dominant_gradient`, `get_lane_center` |
+| `decision_making_function_lib.py` | `calculate_slope_between_points` |
 
 <p>
-<img src="docs/images/02_bev.png" width="54%">
-<img src="docs/images/06_lane_margin.png" width="42%">
+<img src="docs/images/class_pipeline_bev.png" width="54%">
+<img src="docs/images/lane_margin_analysis.png" width="42%">
 </p>
 <sub>왼쪽: 수업 파이프라인 재현 — 축소 트랙 영상의 BEV 변환 / 오른쪽: 판단 로직 — 좌·우 차선 위치와 여유 폭 분석</sub>
 
@@ -224,17 +229,16 @@ python src/driveguard.py data/test4.mp4 --out-dir results
 <pre>
 vehicle-driving-analysis/
 ├── <a href="README.md">README.md</a>
-├── <a href="requirements.txt">requirements.txt</a>
+├── <a href="requirements.txt">requirements.txt</a>                      패키지 목록
 ├── <a href="notebooks/">notebooks/</a>
-│   └── <a href="notebooks/lane_state_analysis_final.ipynb">lane_state_analysis_final.ipynb</a>     최종 노트북 (실행 결과 포함)
+│   └── <a href="notebooks/lane_state_analysis_final.ipynb">lane_state_analysis_final.ipynb</a>   최종 노트북
 ├── <a href="src/">src/</a>
-│   ├── <a href="src/driveguard.py">driveguard.py</a>                       블랙박스 영상 분석 스크립트
-│   └── <a href="src/course_lib/">course_lib/</a>                         수업 제공 코드 안내 (코드 미포함)
-├── <a href="archive/">archive/</a>                                v1 ~ v5 개발 노트북
-├── <a href="data/">data/</a>                                   입력 영상 안내 (영상 미포함)
-└── <a href="docs/images/">docs/images/</a>                            실행 과정 이미지
+│   └── <a href="src/driveguard.py">driveguard.py</a>                     영상 분석 스크립트
+├── <a href="archive/">archive/</a>                              개발 노트북 v1 ~ v5
+├── <a href="data/">data/</a>                                 입력 영상 안내
+└── <a href="docs/images/">docs/images/</a>                          README 이미지
 </pre>
 
-`results/`는 `driveguard.py` 실행 시 생성됩니다 (저장소 미포함).
+영상과 실행 결과(`results/`)는 저장소에 포함하지 않았습니다.
 
 <sub>[↑ 목차](#목차)</sub>
