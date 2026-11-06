@@ -3,6 +3,8 @@
 # ② 차량 주행 분석
 **Vehicle Driving Analysis** · 블랙박스 주행상황 분석 해커톤 중 담당 파트
 
+> 블랙박스 영상에서 차선 내 차량 위치와 진행 방향을 분석해, 위험 단계와 운전자 안내 문구를 실시간으로 표시하는 시스템
+
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
@@ -19,8 +21,6 @@
 &nbsp;
 
 ## 1. 개요
-
-블랙박스 영상에서 차선 내 차량 위치와 진행 방향을 분석해, 위험 단계와 운전자 안내 문구를 실시간으로 표시하는 시스템  
 
 ACE Lab 하계 코딩캠프 해커톤에서 ② 차량 주행 분석 파트를 맡아 설계·구현·발표했습니다.
 
