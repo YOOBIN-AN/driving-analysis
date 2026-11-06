@@ -12,9 +12,11 @@
 ![블랙박스 프레임 차선 검출](docs/images/lane_detection.png)
 <sub>왼쪽: 도로 ROI(빨강)와 검출된 좌·우 차선(초록) / 오른쪽: HLS 색상 + Canny로 만든 차선 후보 에지</sub>
 
+&nbsp;
+
 <a id="목차"></a>**목차** · [개요](#1-개요) · [데모](#2-데모) · [동작 원리](#3-동작-원리) · [트러블슈팅](#4-트러블슈팅) · [한계 및 개선 방향](#5-한계-및-개선-방향) · [실행 방법](#6-실행-방법) · [폴더 구조](#7-폴더-구조)
 
-<br>
+&nbsp;
 
 ## 1. 개요
 
@@ -31,6 +33,8 @@ ACE Lab 하계 코딩캠프 해커톤에서 ② 차량 주행 분석 파트를 �
 
 <sub>[↑ 목차](#목차)</sub>
 
+&nbsp;
+
 ## 2. 데모
 
 ### 고속도로 주행
@@ -39,7 +43,7 @@ https://github.com/user-attachments/assets/e52af55f-3f94-4801-881d-08453bc208b0
 
 <sub>급한 오른쪽 곡선 진입 시 CAUTION 전환 · 감속 안내</sub>
 
-<br>
+&nbsp;
 
 ### 도심 주행
 
@@ -47,7 +51,7 @@ https://github.com/user-attachments/assets/dc60bd59-534e-4bb5-b99b-9826f01e979c
 
 <sub>앞차 · 노면 표시가 많아 차선 인식이 흔들리는 환경</sub>
 
-<br>
+&nbsp;
 
 ### 결과 요약
 
@@ -67,6 +71,8 @@ https://github.com/user-attachments/assets/dc60bd59-534e-4bb5-b99b-9826f01e979c
 </details>
 
 <sub>[↑ 목차](#목차)</sub>
+
+&nbsp;
 
 ## 3. 동작 원리
 
@@ -101,7 +107,7 @@ flowchart TD
 
 </details>
 
-<br>
+&nbsp;
 
 ### 판단 규칙
 
@@ -144,6 +150,8 @@ flowchart LR
 
 <sub>[↑ 목차](#목차)</sub>
 
+&nbsp;
+
 ## 4. 트러블슈팅
 
 | # | 문제 | 해결 |
@@ -174,6 +182,8 @@ flowchart LR
 
 <sub>[↑ 목차](#목차)</sub>
 
+&nbsp;
+
 ## 5. 한계 및 개선 방향
 
 **한계**
@@ -189,6 +199,8 @@ flowchart LR
 - 운전 습관 분석 · 사고 예방 시스템
 
 <sub>[↑ 목차](#목차)</sub>
+
+&nbsp;
 
 ## 6. 실행 방법
 
@@ -231,6 +243,8 @@ python src/driveguard.py data/test4.mp4 --out-dir results
 </details>
 
 <sub>[↑ 목차](#목차)</sub>
+
+&nbsp;
 
 ## 7. 폴더 구조
 
