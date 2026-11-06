@@ -47,7 +47,7 @@
 
 `Python` `OpenCV` `YOLO` `HLS · Canny · HoughLinesP` `Lucas–Kanade Optical Flow` `NumPy` `pandas`
 
-## 저장소 구조
+## 폴더 구조
 
 <pre>
 driving-analysis/
