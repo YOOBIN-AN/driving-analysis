@@ -37,13 +37,13 @@
 
 ## 2. 시스템 구성
 
-| | ① 전방 객체 탐지<br>조윤서 | ② [차량 주행 분석](lane-analysis/)<br>**안유빈** (구현·발표 담당) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ① 전방 객체 탐지<br>조윤서 | ② [차량 주행 분석](lane-analysis/)<br>**안유빈** (구현·발표 담당) |
 |---|---|---|
 | **질문** | 차량 앞에 "무엇이" 있는가 | 차가 차선 안에서 "어떻게" 달리고 있는가 |
 | **인식** | YOLO 객체 탐지 (차량 · 사람 · 신호등) | HLS · Canny · Hough 차선 검출 |
-| **분석** | 신호등 색상 판별, 위험 영역 내 객체 확인 | 위치(`offset_ratio`) · 방향(Heading) · 상대 움직임(Optical Flow) |
+| **분석** | 신호등 색상 판별, 위험 영역 내 객체 확인 | 위치(`offset_ratio`) · 방향(Heading) ·<br>상대 움직임(Optical Flow) |
 | **판단** | `STOP` · `PEDESTRIAN WARNING` | `DANGER` · `CAUTION` · `NORMAL` |
-| **출력** | 바운딩 박스 · 신호등 상태 · 위험 영역 통합 표시 | 상태 오버레이 + 운전자 안내 문구 |
+| **출력** | 바운딩 박스 · 신호등 상태 ·<br>위험 영역 통합 표시 | 상태 오버레이 + 운전자 안내 문구 |
 
 ② 차량 주행 분석의 데모 · 동작 원리 · 코드 · 개발 과정은 [`lane-analysis/`](lane-analysis/)에서 볼 수 있습니다.
 

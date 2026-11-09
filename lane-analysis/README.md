@@ -58,7 +58,7 @@ https://github.com/user-attachments/assets/dc60bd59-534e-4bb5-b99b-9826f01e979c
 | 영상 | 결과 |
 |---|---|
 | 고속도로 주행 <sub>(test4 · 470 프레임)</sub> | 곡선 구간에서 Heading 20° 이상으로 증가 → **CAUTION** 전환 |
-| 도심 주행 <sub>(test3 · 622 프레임)</sub> | 버스 · 승용차 · 차선 변경으로 차선 폭과 중심이 흔들려 NORMAL ↔ CAUTION 전환이 잦음 |
+| 도심 주행 <sub>(test3 · 622 프레임)</sub> | 버스 · 승용차 · 차선 변경으로 차선 폭과 중심이 흔들려<br>NORMAL ↔ CAUTION 전환이 잦음 |
 
 <details>
 <summary><b>분석 실패 프레임과 수정</b></summary>
@@ -80,12 +80,12 @@ https://github.com/user-attachments/assets/dc60bd59-534e-4bb5-b99b-9826f01e979c
 
 ```mermaid
 flowchart TD
-    IN["블랙박스 프레임 (1920 × 1080)"] --> CAND["차선 후보 추출<br/>도로 ROI · HLS 흰색 · 노란색 ∩ Canny"]
-    CAND --> LINE["좌 · 우 차선 검출<br/>HoughLinesP → 길이 가중 직선 피팅"]
-    LINE --> ANA["위치 · 방향 분석<br/>offset_ratio · Heading (7프레임 평균)"]
-    ANA --> RISK["위험 단계 판단"]
-    IN --> FLOW["상대 움직임 분석<br/>Lucas–Kanade Optical Flow"]
-    RISK --> OUT["한글 오버레이 영상 + 프레임별 CSV"]
+    IN["<div style='width:272px;height:48px;display:flex;flex-direction:column;justify-content:center'>블랙박스 프레임 (1920 × 1080)</div>"] --> CAND["<div style='width:272px;height:48px;display:flex;flex-direction:column;justify-content:center'>차선 후보 추출<br/>도로 ROI · HLS 흰색 · 노란색 ∩ Canny</div>"]
+    CAND --> LINE["<div style='width:272px;height:48px;display:flex;flex-direction:column;justify-content:center'>좌 · 우 차선 검출<br/>HoughLinesP → 길이 가중 직선 피팅</div>"]
+    LINE --> ANA["<div style='width:272px;height:48px;display:flex;flex-direction:column;justify-content:center'>위치 · 방향 분석<br/>offset_ratio · Heading (7프레임 평균)</div>"]
+    ANA --> RISK["<div style='width:272px;height:48px;display:flex;flex-direction:column;justify-content:center'>위험 단계 판단</div>"]
+    IN --> FLOW["<div style='width:272px;height:48px;display:flex;flex-direction:column;justify-content:center'>상대 움직임 분석<br/>Lucas–Kanade Optical Flow</div>"]
+    RISK --> OUT["<div style='width:272px;height:48px;display:flex;flex-direction:column;justify-content:center'>한글 오버레이 영상 + 프레임별 CSV</div>"]
     FLOW --> OUT
 
     classDef io fill:#57606a,stroke:#57606a,color:#fff
@@ -113,14 +113,14 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    A["좌 · 우 차선<br/>모두 검출?"] -- 예 --> B["편향 25% 이상<br/>또는 차선 이탈?"]
-    B -- 아니오 --> E["편향 10% 이상 ·<br/>근접 · 좌우 불균형?"]
-    E -- 아니오 --> F["Heading<br/>12° 이상?"]
-    F -- 아니오 --> N["NORMAL<br/>정상 주행"]
-    A -- 아니오 --> C1["CAUTION<br/>차선 인식 불안정"]
-    B -- 예 --> D["DANGER<br/>차선 이탈"]
-    E -- 예 --> C2["CAUTION<br/>편향 · 근접"]
-    F -- 예 --> C3["CAUTION<br/>급곡선"]
+    A["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>좌 · 우 차선<br/>모두 검출?</div>"] -- 예 --> B["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>편향 25% 이상<br/>또는 차선 이탈?</div>"]
+    B -- 아니오 --> E["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>편향 10% 이상 ·<br/>근접 · 좌우 불균형?</div>"]
+    E -- 아니오 --> F["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>Heading<br/>12° 이상?</div>"]
+    F -- 아니오 --> N["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>NORMAL<br/>정상 주행</div>"]
+    A -- 아니오 --> C1["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>CAUTION<br/>차선 인식 불안정</div>"]
+    B -- 예 --> D["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>DANGER<br/>차선 이탈</div>"]
+    E -- 예 --> C2["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>CAUTION<br/>편향 · 근접</div>"]
+    F -- 예 --> C3["<div style='width:136px;height:48px;display:flex;flex-direction:column;justify-content:center'>CAUTION<br/>급곡선</div>"]
 
     classDef ask fill:#f6f8fa,stroke:#57606a,color:#24292f
     classDef danger fill:#ffebe9,stroke:#cf222e,color:#82071e
