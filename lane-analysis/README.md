@@ -3,7 +3,7 @@
 # ② 차량 주행 분석
 **Vehicle Driving Analysis** · 블랙박스 주행상황 분석 해커톤 중 담당 파트
 
-> 블랙박스 영상에서 차선 내 차량 위치와 진행 방향을 분석해, 위험 단계와 운전자 안내 문구를 실시간으로 표시하는 시스템
+> 블랙박스 영상에서 차선 내 차량 위치와 진행 방향을 분석해, 위험 단계와 운전자 안내 문구를 프레임마다 표시하는 시스템
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
@@ -12,7 +12,7 @@
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
 
 ![블랙박스 프레임 차선 검출](docs/images/lane_detection.png)
-<sub>왼쪽: 도로 ROI(빨강)와 검출된 좌·우 차선(초록) / 오른쪽: HLS 색상 + Canny로 만든 차선 후보 에지</sub>
+<sub>왼쪽: 도로 ROI(빨강)와 검출된 좌 · 우 차선(초록) / 오른쪽: HLS 색상 + Canny로 만든 차선 후보 에지</sub>
 
 &nbsp;
 
@@ -80,8 +80,8 @@ https://github.com/user-attachments/assets/dc60bd59-534e-4bb5-b99b-9826f01e979c
 
 ```mermaid
 flowchart TD
-    IN["블랙박스 프레임 (1920 × 1080)"] --> CAND["차선 후보 추출<br/>도로 ROI · HLS 흰색·노란색 ∩ Canny"]
-    CAND --> LINE["좌·우 차선 검출<br/>HoughLinesP → 길이 가중 직선 피팅"]
+    IN["블랙박스 프레임 (1920 × 1080)"] --> CAND["차선 후보 추출<br/>도로 ROI · HLS 흰색 · 노란색 ∩ Canny"]
+    CAND --> LINE["좌 · 우 차선 검출<br/>HoughLinesP → 길이 가중 직선 피팅"]
     LINE --> ANA["위치 · 방향 분석<br/>offset_ratio · Heading (7프레임 평균)"]
     ANA --> RISK["위험 단계 판단"]
     IN --> FLOW["상대 움직임 분석<br/>Lucas–Kanade Optical Flow"]
@@ -100,7 +100,7 @@ flowchart TD
 
 | 단계 | 기준 |
 |---|---|
-| 차선 후보 | 흰색·노란색 색상 마스크와 Canny 에지가 겹치는 부분만 사용 (건물 · 그림자 에지 제거) |
+| 차선 후보 | 흰색 · 노란색 색상 마스크와 Canny 에지가 겹치는 부분만 사용 (건물 · 그림자 에지 제거) |
 | 차선 검출 | 기울기 0.35 ~ 5.0 선분만 사용, 차선 폭이 영상 폭의 18 ~ 75%를 벗어나면 오검출로 폐기 |
 | 위치 분석 | 편향을 차선 폭 기준 비율로 계산해 해상도와 무관하게 판단 |
 | 움직임 분석 | 도로 하단 특징점 이동거리의 중앙값 사용 (60px 이상은 이상치로 제외) |
@@ -113,7 +113,7 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    A["좌·우 차선<br/>모두 검출?"] -- 예 --> B["편향 25% 이상<br/>또는 차선 이탈?"]
+    A["좌 · 우 차선<br/>모두 검출?"] -- 예 --> B["편향 25% 이상<br/>또는 차선 이탈?"]
     B -- 아니오 --> E["편향 10% 이상 ·<br/>근접 · 좌우 불균형?"]
     E -- 아니오 --> F["Heading<br/>12° 이상?"]
     F -- 아니오 --> N["NORMAL<br/>정상 주행"]
@@ -141,8 +141,8 @@ flowchart LR
 | 항목 | 정의 · 기준 |
 |---|---|
 | 편향 (`offset_ratio`) | (차선 중심 − 차량 중심) ÷ 차선 폭, 0이면 정중앙 |
-| 차선 근접 (`margin_ratio`) | 좌·우 차선까지 여유 중 작은 쪽 ÷ 차선 폭이 0.25 미만 |
-| 좌우 불균형 | 좌·우 여유 비율 차이가 0.10 초과 |
+| 차선 근접 (`margin_ratio`) | 좌 · 우 차선까지 여유 중 작은 쪽 ÷ 차선 폭이 0.25 미만 |
+| 좌우 불균형 | 좌 · 우 여유 비율 차이가 0.10 초과 |
 | 진행 방향 (Heading) | 3° 미만 직진 · 3 ~ 12° 좌/우 진행 · 12° 이상 급한 좌/우 방향 |
 | 상대 움직임 | 0.7 미만 정지 · 2.0 미만 저속 · 4.5 미만 보통 · 이상 고속 (px/frame) — 실제 km/h가 아닌 영상 내 픽셀 이동량 |
 
@@ -156,7 +156,7 @@ flowchart LR
 
 | # | 문제 | 해결 |
 |:-:|---|---|
-| 1 | 정상 주행인데 항상 '위험' (중심 오차 −959px) | 수업 함수 대신 좌·우 차선의 중간을 차선 중심으로 사용 |
+| 1 | 정상 주행인데 항상 '위험' (중심 오차 −959px) | 수업 함수 대신 좌 · 우 차선의 중간을 차선 중심으로 사용 |
 | 2 | 차선이 거의 검출되지 않음 | 블랙박스 시점과 안 맞는 고정 BEV를 빼고 원본 시점에서 검출 |
 | 3 | 편향 기준이 해상도에 따라 흔들림 | 영상 폭 대신 차선 폭으로 정규화 |
 | 4 | 차선 미검출 시 실행 중단 | `None` 안전 처리 + 프레임 단위 예외 처리 |
@@ -238,7 +238,7 @@ python src/driveguard.py data/test4.mp4 --out-dir results
 <img src="docs/images/class_pipeline_bev.png" width="54%">
 <img src="docs/images/lane_margin_analysis.png" width="42%">
 </p>
-<sub>왼쪽: 수업 파이프라인 재현 — 축소 트랙 영상의 BEV 변환 / 오른쪽: 판단 로직 — 좌·우 차선 위치와 여유 폭 분석</sub>
+<sub>왼쪽: 수업 파이프라인 재현 — 축소 트랙 영상의 BEV 변환 / 오른쪽: 판단 로직 — 좌 · 우 차선 위치와 여유 폭 분석</sub>
 
 </details>
 
